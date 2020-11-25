@@ -5,16 +5,35 @@ public class ResponseFile {
   private String url;
   private String type;
   private long size;
-  private String username;
-  private String details;
+  private String userid;
+  private String date;
+  private String category;
+  private String courseId;
+  private String departmentId;
+  private Boolean accepted;
 
-  public ResponseFile(String name, String url, String type, long size, String username, String details) {
+//  public ResponseFile(String name, String url, String type, long size, String username, String details) {
+//    this.name = name;
+//    this.url = url;
+//    this.type = type;
+//    this.size = size;
+//    this.username = username;
+//    this.details = details;
+//  }
+
+  public ResponseFile(String name, String url, String type, long size,
+                      String userid, String date, String category, String courseId,
+                      String departmentId, Boolean accepted) {
     this.name = name;
     this.url = url;
     this.type = type;
     this.size = size;
-    this.username = username;
-    this.details = details;
+    this.userid = userid;
+    this.date = date;
+    this.category = category;
+    this.courseId = courseId;
+    this.departmentId = departmentId;
+    this.accepted = accepted;
   }
 
   public String getName() {
@@ -49,11 +68,27 @@ public class ResponseFile {
     this.size = size;
   }
 
-  public String getUsername() { return username; }
+  public String getUserid() { return userid; }
 
-  public void setUsername(String username) { this.username = username; }
+  public void setUserid(String userid) { this.userid = userid; }
 
-  public String getDetails() { return details; }
+  public String getDate() { return date; }
 
-  public void setDetails(String details) { this.details = details; }
+  public void setDate(String date) { this.date = date; }
+
+  public String getCategory() { return category; }
+
+  public void setCategory(String category) { this.category = category; }
+
+  public String getCourseId() { return courseId; }
+
+  public void setCourseId(String courseId) { this.courseId = courseId; }
+
+  public String getDepartmentId() { return departmentId; }
+
+  public void setDepartmentId(String departmentId) { this.departmentId = departmentId; }
+
+  public Boolean getAccepted() { return accepted; }
+
+  public void setAccepted(Boolean accepted) { this.accepted = accepted; }
 }

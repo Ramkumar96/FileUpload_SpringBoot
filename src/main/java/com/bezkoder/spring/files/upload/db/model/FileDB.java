@@ -23,54 +23,79 @@ public class FileDB {
   @Lob
   private byte[] data;
 
-  private String username;
+  private String userid;
 
-  private String details;
+  private String date;
+
+  private String category;
+
+  private String courseId;
+
+  private String departmentId;
+
+  private Boolean accepted;
 
   public FileDB() {
   }
 
-  public FileDB(String name, String type, byte[] data, String username, String details) {
+//  public FileDB(String name, String type, byte[] data, String username, String details) {
+//    this.name = name;
+//    this.type = type;
+//    this.data = data;
+//    this.username = username;
+//    this.details = details;
+//  }
+
+  public FileDB(String name, String type, byte[] data, String userid, String date,
+                String category, String courseId, String departmentId, Boolean accepted) {
     this.name = name;
     this.type = type;
     this.data = data;
-    this.username = username;
-    this.details = details;
+    this.userid = userid;
+    this.date = date;
+    this.category = category;
+    this.courseId = courseId;
+    this.departmentId = departmentId;
+    this.accepted = accepted;
   }
 
   public String getId() {
     return id;
   }
 
-  public String getName() {
-    return name;
-  }
+  public String getName() { return name; }
 
-  public void setName(String name) {
-    this.name = name;
-  }
+  public void setName(String name) { this.name = name; }
 
-  public String getType() {
-    return type;
-  }
+  public String getType() { return type; }
 
-  public void setType(String type) {
-    this.type = type;
-  }
+  public void setType(String type) { this.type = type; }
 
-  public byte[] getData() {
-    return data;
-  }
+  public byte[] getData() { return data; }
 
-  public void setData(byte[] data) {
-    this.data = data;
-  }
+  public void setData(byte[] data) { this.data = data; }
 
-  public String getUsername() {return username; }
+  public String getUserid() { return userid; }
 
-  public void setUsername(String username) { this.username = username; }
+  public void setUserid(String userid) { this.userid = userid; }
 
-  public String getDetails() { return details; }
+  public String getDate() { return date; }
 
-  public void setDetails(String details) { this.details = details; }
+  public void setDate(String date) { this.date = date; }
+
+  public String getCategory() { return category; }
+
+  public void setCategory(String category) { this.category = category; }
+
+  public String getCourseId() { return courseId; }
+
+  public void setCourseId(String courseId) { this.courseId = courseId; }
+
+  public String getDepartmentId() { return departmentId; }
+
+  public void setDepartmentId(String departmentId) { this.departmentId = departmentId; }
+
+  public Boolean getAccepted() { return accepted; }
+
+  public void setAccepted(Boolean accepted) { this.accepted = accepted; }
 }

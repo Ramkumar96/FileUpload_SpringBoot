@@ -31,11 +31,15 @@ public class FileController {
   @PostMapping("/upload")
   public ResponseEntity<ResponseMessage> uploadFile(
           @RequestParam("file") MultipartFile file,
-          @RequestParam("username") String username,
-          @RequestParam("details") String details) {
+          @RequestParam("userid") String userid,
+          @RequestParam("date") String date,
+          @RequestParam("category") String category,
+          @RequestParam("courseId") String courseId,
+          @RequestParam("departmentId") String departmentId,
+          @RequestParam("accepted") Boolean accepted) {
     String message = "";
     try {
-      storageService.store(file ,username,details);
+      storageService.store(file ,userid ,date ,category, courseId,departmentId, accepted  );
 
       message = "Uploaded the file successfully: " + file.getOriginalFilename();
       return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
@@ -44,6 +48,9 @@ public class FileController {
       return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
     }
   }
+
+//  String userid, String date,
+//  String category, String courseId, String departmentId, Boolean accepted
 
   @GetMapping("/files")
   public ResponseEntity<List<ResponseFile>> getListFiles() {
@@ -59,8 +66,12 @@ public class FileController {
           fileDownloadUri,
           dbFile.getType(),
           dbFile.getData().length,
-              dbFile.getUsername(),
-              dbFile.getDetails());
+          dbFile.getUserid(),
+          dbFile.getDate(),
+          dbFile.getCategory(),
+          dbFile.getCourseId(),
+          dbFile.getDepartmentId(),
+          dbFile.getAccepted());
     }).collect(Collectors.toList());
 
     return ResponseEntity.status(HttpStatus.OK).body(files);
